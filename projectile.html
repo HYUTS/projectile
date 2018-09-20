@@ -8,6 +8,25 @@
 <script>
 $(document).ready(function(){
 
+   // Why are the different other than 'new' having a name but why do you need if you have the variable?
+   var newObj = new constructNewObject(25,5);
+   var obj = constructObject(25,5);
+
+   console.log(newObj);
+   console.log(obj);
+
+   function constructNewObject(size, speed) {
+      this.size = size;
+      this.speed = speed;
+   }
+
+   function constructObject(size, speed) {
+      return {
+         "size": size,
+         "speed": speed,
+      }
+   }
+
 });
 </script>
 </head>
