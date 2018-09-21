@@ -25,9 +25,17 @@
             this.draw = function() {
                ctx.beginPath();
                ctx.arc(x, y, 40, 0, 2 * Math.PI);
+               ctx.fillStyle = "blue";
+               ctx.fill();
                ctx.stroke();
             };
          }
+
+         var counter = 0
+         var interval = setInterval(function() {
+
+            counter++;
+         }, 1000);
 
       });
    </script>
