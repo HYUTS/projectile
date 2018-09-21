@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Projectile</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+   <script>
+      $(document).ready(function() {
+
+         var c = document.getElementById("canvas");
+         var ctx = c.getContext("2d");
+
+         // Counter iterations within interval func, used as break statement
+         var counter = 1;
+         var interval = setInterval(function() {
+            var newObj = new constructNewObject(counter * 5, 5, 100, 100);
+            newObj.draw();
+            // Shorthand to test if we want to break out of interval
+            (counter >= 2 ? clearInterval(interval) : counter++);
+            // console.log(newObj);
+         }, 1000);
+
+         function constructNewObject(size, speed, x, y) {
+            this.size = size;
+            this.speed = speed;
+            this.x;
+            this.y;
+            this.draw = function() {
+               ctx.beginPath();
+               ctx.arc(x, y, 40, 0, 2 * Math.PI);
+               ctx.fillStyle = "blue";
+               ctx.fill();
+               ctx.stroke();
+            };
+         }
+
+
+
+      });
+   </script>
+</head>
+
+<body>
+
+   <canvas id="canvas" width=200 height=200 style="border: solid 1px #000"></canvas>
+
+</body>
+
+</html>
