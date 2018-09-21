@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Projectile</title>
+   <title>Projectile</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script>
-$(document).ready(function(){
+   <script>
+      $(document).ready(function() {
 
-   // Why are the different other than 'new' having a name but why do you need if you have the variable?
-   var newObj = new constructNewObject(25,5);
-   var obj = constructObject(25,5);
+         var c = document.getElementById("canvas");
+         var ctx = c.getContext("2d");
 
-   console.log(newObj);
-   console.log(obj);
+         var newObj = new constructNewObject(50, 5, 100, 100);
 
-   function constructNewObject(size, speed) {
-      this.size = size;
-      this.speed = speed;
-   }
+         newObj.draw();
+         // console.log(newObj);
 
-   function constructObject(size, speed) {
-      return {
-         "size": size,
-         "speed": speed,
-      }
-   }
+         function constructNewObject(size, speed, x, y) {
+            this.size = size;
+            this.speed = speed;
+            this.x;
+            this.y;
+            this.draw = function() {
+               ctx.beginPath();
+               ctx.arc(x, y, 40, 0, 2 * Math.PI);
+               ctx.stroke();
+            };
+         }
 
-});
-</script>
+      });
+   </script>
 </head>
+
 <body>
 
-<div id="container"></div>
+   <canvas id="canvas" width=200 height=200 style="border: solid 1px #000"></canvas>
 
 </body>
+
 </html>
